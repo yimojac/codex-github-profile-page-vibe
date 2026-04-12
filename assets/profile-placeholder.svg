@@ -1,0 +1,34 @@
+<svg width="640" height="640" viewBox="0 0 640 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="72" y1="48" x2="568" y2="600" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#CBE9E4" />
+      <stop offset="1" stop-color="#E8F1F6" />
+    </linearGradient>
+    <linearGradient id="line" x1="197" y1="166" x2="454" y2="451" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F766E" />
+      <stop offset="1" stop-color="#1A5560" />
+    </linearGradient>
+  </defs>
+  <rect x="28" y="28" width="584" height="584" rx="52" fill="url(#bg)" />
+  <circle cx="320" cy="252" r="96" fill="#F5FAFC" stroke="#8EBCC2" stroke-width="8" />
+  <path
+    d="M176 470C176 393.784 237.784 332 314 332H326C402.216 332 464 393.784 464 470V472H176V470Z"
+    fill="#F5FAFC"
+    stroke="#8EBCC2"
+    stroke-width="8"
+  />
+  <path d="M228 512H412" stroke="url(#line)" stroke-width="14" stroke-linecap="round" />
+  <path d="M252 552H388" stroke="#4E808A" stroke-width="10" stroke-linecap="round" opacity="0.74" />
+  <rect x="74" y="74" width="492" height="492" rx="34" stroke="#90B7BE" stroke-width="8" />
+  <text
+    x="320"
+    y="122"
+    text-anchor="middle"
+    font-family="'Space Grotesk', 'Malgun Gothic', sans-serif"
+    font-size="36"
+    font-weight="700"
+    fill="#1B4C57"
+  >
+    PROFILE PLACEHOLDER
+  </text>
+</svg>
