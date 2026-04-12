@@ -7,10 +7,10 @@
  */
 const portfolioData = {
   profile: {
-    name: "홍길동",
-    role: "Frontend Developer",
+    name: "이명준",
+    role: "사업기획",
     summary:
-      "사용자 문제를 빠르게 정의하고, 읽기 쉬운 코드와 명확한 UI로 제품 가치를 전달하는 개발자입니다.",
+      "사내벤처 프로그램 기획·운영, 오픈이노베이션 협업, CBDC 결제수단 도입 전략을 추진하며 실행 가능한 사업 기회를 발굴합니다.",
     location: "Based in Seoul, South Korea",
   },
   skills: [
