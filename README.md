@@ -1,7 +1,6 @@
 # GitHub Pages 개발자 포트폴리오 (v1)
 
-정적 `HTML/CSS/JS`로 만든 원페이지 개발자 포트폴리오 템플릿입니다.  
-한국어 단일, 취업 지원용 흐름(소개 → 기술 → 프로젝트 → 연락처)을 기준으로 구성했습니다.
+정적 `HTML/CSS/JS`로 만든 원페이지 개발자 포트폴리오 템플릿입니다.
 
 ## 파일 구조
 
@@ -10,60 +9,69 @@
 ├─ index.html
 ├─ styles.css
 ├─ script.js
+├─ .github/
+│  └─ workflows/
+│     └─ deploy-pages.yml
 └─ assets/
    ├─ favicon-placeholder.svg
    └─ profile-placeholder.svg
 ```
 
-## 로컬에서 미리보기
-
-브라우저로 `index.html`을 직접 열어도 되지만, 간단한 로컬 서버 사용을 권장합니다.
+## 로컬 미리보기
 
 ```bash
 python -m http.server 8080
 ```
 
-그 뒤 브라우저에서 `http://localhost:8080` 접속
+브라우저에서 `http://localhost:8080` 접속
 
 ## 콘텐츠 교체 포인트
 
-### 1) 기본 정보/기술/프로젝트/연락처
 - 파일: `script.js`
 - 객체: `portfolioData`
 - 교체 항목:
   - `profile.name`, `profile.role`, `profile.summary`, `profile.location`
   - `skills` 배열
-  - `projects` 배열(각 프로젝트의 `title`, `description`, `tech`, `githubUrl`, `demoUrl`, `highlights`)
+  - `projects` 배열 (`title`, `description`, `tech`, `githubUrl`, `demoUrl`, `highlights`)
   - `contacts.email`, `contacts.github`
+- 이미지:
+  - 프로필: `assets/profile-placeholder.svg`
+  - 파비콘: `assets/favicon-placeholder.svg`
 
-### 2) 프로필 이미지
-- 파일 경로: `assets/profile-placeholder.svg`
-- 원하는 이미지 파일로 교체하고 `index.html`의 `<img src>`를 맞춰 주세요.
-- 브라우저 탭 아이콘은 `assets/favicon-placeholder.svg`를 교체하면 됩니다.
+## 배포 방식
 
-### 3) 페이지 타이틀/메타 설명
-- 파일: `index.html`
-- `<title>`, `<meta name="description">`를 본인 정보에 맞게 수정
+- GitHub Pages: **프로젝트 페이지**
+- URL 형태: `https://<github-username>.github.io/<repo-name>/`
+- 배포 자동화: `main` 브랜치 push 시 GitHub Actions에서 자동 배포
 
-## GitHub Pages 배포 (`<github-username>.github.io`)
+## GitHub Pages 설정 (프로젝트 페이지 + Actions)
 
-1. GitHub에서 저장소 이름을 `<github-username>.github.io`로 생성
-2. 이 프로젝트 파일을 저장소 루트에 업로드
-3. 기본 브랜치를 `main`으로 맞춤
-4. GitHub 저장소 `Settings > Pages`에서 `Deploy from a branch`
-5. Branch: `main`, Folder: `/(root)` 선택 후 저장
-6. 배포 완료 후 `https://<github-username>.github.io` 접속
+1. GitHub에 일반 저장소 생성  
+   예: `codex-github-profile-page-vibe` (중요: `<username>.github.io` 저장소가 아님)
+2. 저장소 `Settings > Pages`로 이동
+3. `Build and deployment`의 `Source`를 **GitHub Actions**로 선택
+4. 이 저장소의 `main`에 push하면 `.github/workflows/deploy-pages.yml`가 자동 실행
+5. 배포 완료 후 `https://<github-username>.github.io/<repo-name>/` 접속
+
+## gh 인증 관련 (디바이스 코드)
+
+`gh auth login --web` 실행 시 보통 아래 흐름이 맞습니다.
+
+1. 터미널에 1회용 디바이스 코드 표시
+2. 브라우저에서 `github.com/login/device` 또는 `Authorize your device` 페이지 열림
+3. 코드 입력 후 승인
+4. 터미널에 인증 성공 메시지 출력
+
+인증이 끝나면 같은 세션에서 바로 아래 작업을 이어서 할 수 있습니다.
+
+- `gh repo create ...`
+- `git remote add origin ...`
+- `git push -u origin main`
 
 ## 점검 체크리스트
 
-- 내비게이션/CTA 클릭 시 해당 섹션으로 이동하는지
-- 프로젝트 링크(Demo/GitHub), 연락처 링크(`mailto`, GitHub)가 정상 동작하는지
-- 모바일(375px), 태블릿(768px), 데스크톱(1280px)에서 레이아웃이 깨지지 않는지
-- Lighthouse에서 Performance/Accessibility/Best Practices 각 항목 85+ 달성 여부
-
-## v2 확장 아이디어
-
-- 한국어/영어 다국어 토글
-- 프로젝트 상세 페이지 분리
-- 블로그 또는 글 모아보기 섹션 추가
-- 외부 폼 서비스 연동(Formspree 등)
+- 내비게이션/CTA로 섹션 이동 정상 동작
+- 프로젝트 Demo/GitHub 링크 정상 동작
+- 연락처 `mailto`/GitHub 링크 정상 동작
+- 모바일(375px), 태블릿(768px), 데스크톱(1280px) 레이아웃 점검
+- Lighthouse(Performance/Accessibility/Best Practices) 85+ 목표
