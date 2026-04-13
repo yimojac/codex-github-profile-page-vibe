@@ -1,6 +1,7 @@
-# GitHub Pages 개발자 포트폴리오 (v1)
+# GitHub Pages 사업기획 포트폴리오 (v2)
 
-정적 `HTML/CSS/JS`로 만든 원페이지 개발자 포트폴리오 템플릿입니다.
+정적 `HTML/CSS/JS`로 만든 원페이지 사업기획 포트폴리오 템플릿입니다.
+핵심 역량과 주요 사례를 중심으로 성과를 전달하도록 구성되어 있습니다.
 
 ## 파일 구조
 
@@ -31,12 +32,18 @@ python -m http.server 8080
 - 객체: `portfolioData`
 - 교체 항목:
   - `profile.name`, `profile.role`, `profile.summary`, `profile.location`
-  - `skills` 배열
-  - `projects` 배열 (`title`, `description`, `tech`, `githubUrl`, `demoUrl`, `highlights`)
-  - `contacts.email`, `contacts.github`
+  - `skills` 배열 (`category`, `items`)
+  - `projects` 배열 (`title`, `description`, `focus`, `caseUrl`, `referenceUrl`, `highlights`)
+  - `contacts.email`, `contacts.github` (온라인 프로필 링크 용도)
 - 이미지:
   - 프로필: `assets/profile-placeholder.svg`
   - 파비콘: `assets/favicon-placeholder.svg`
+
+## UI 카피 가이드
+
+- 내비게이션: `소개`, `역량`, `사례`, `연락처`
+- 섹션 타이틀: `핵심 역량`, `주요 사례`
+- 사례 링크 라벨: `케이스 보기`, `관련 자료`
 
 ## 배포 방식
 
@@ -53,25 +60,10 @@ python -m http.server 8080
 4. 이 저장소의 `main`에 push하면 `.github/workflows/deploy-pages.yml`가 자동 실행
 5. 배포 완료 후 `https://<github-username>.github.io/<repo-name>/` 접속
 
-## gh 인증 관련 (디바이스 코드)
-
-`gh auth login --web` 실행 시 보통 아래 흐름이 맞습니다.
-
-1. 터미널에 1회용 디바이스 코드 표시
-2. 브라우저에서 `github.com/login/device` 또는 `Authorize your device` 페이지 열림
-3. 코드 입력 후 승인
-4. 터미널에 인증 성공 메시지 출력
-
-인증이 끝나면 같은 세션에서 바로 아래 작업을 이어서 할 수 있습니다.
-
-- `gh repo create ...`
-- `git remote add origin ...`
-- `git push -u origin main`
-
 ## 점검 체크리스트
 
 - 내비게이션/CTA로 섹션 이동 정상 동작
-- 프로젝트 Demo/GitHub 링크 정상 동작
-- 연락처 `mailto`/GitHub 링크 정상 동작
+- 사례 카드의 `focus` 배지 정상 노출
+- `케이스 보기`/`관련 자료` 링크 정상 동작
+- 연락처 `mailto`/온라인 프로필 링크 정상 동작
 - 모바일(375px), 태블릿(768px), 데스크톱(1280px) 레이아웃 점검
-- Lighthouse(Performance/Accessibility/Best Practices) 85+ 목표

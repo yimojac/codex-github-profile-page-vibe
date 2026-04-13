@@ -2,7 +2,7 @@
  * Portfolio data schema
  * profile: { name, role, summary, location }
  * skills: Array<{ category, items: string[] }>
- * projects: Array<{ title, description, tech: string[], githubUrl, demoUrl, highlights: string[] }>
+ * projects: Array<{ title, description, focus: string[], caseUrl, referenceUrl, highlights: string[] }>
  * contacts: { email, github }
  */
 const portfolioData = {
@@ -15,60 +15,95 @@ const portfolioData = {
   },
   skills: [
     {
-      category: "Language",
-      items: ["JavaScript", "TypeScript", "HTML5", "CSS3"],
+      category: "시장/고객 분석",
+      items: [
+        "시장 규모 산정(TAM/SAM/SOM)",
+        "고객 세그먼트 정의",
+        "경쟁사/대체재 분석",
+        "정성·정량 인사이트 도출",
+      ],
     },
     {
-      category: "Framework",
-      items: ["React", "Next.js", "Node.js", "Express"],
+      category: "사업 전략 수립",
+      items: [
+        "신사업 기회 발굴",
+        "비즈니스 모델 설계",
+        "수익성/손익 구조 검토",
+        "중장기 로드맵 수립",
+      ],
     },
     {
-      category: "Tooling",
-      items: ["GitHub Actions", "Vite", "Jest", "Playwright"],
+      category: "실행 및 운영",
+      items: [
+        "KPI/OKR 설계",
+        "유관부서 협업 리딩",
+        "프로젝트 일정·리스크 관리",
+        "PoC 및 파일럿 운영",
+      ],
     },
     {
-      category: "Collaboration",
-      items: ["Figma", "Notion", "Slack", "Linear"],
+      category: "문서화·커뮤니케이션",
+      items: [
+        "경영진 보고 자료 작성",
+        "제안서/사업계획서 작성",
+        "의사결정 회의 퍼실리테이션",
+        "대내외 파트너 커뮤니케이션",
+      ],
     },
   ],
   projects: [
     {
-      title: "채용 공고 탐색 대시보드",
+      title: "사내벤처 프로그램 고도화",
       description:
-        "여러 채용 채널 데이터를 한 화면에서 비교할 수 있도록 탐색 경험을 개선한 웹 대시보드입니다.",
-      tech: ["React", "TypeScript", "TanStack Query", "Chart.js"],
-      githubUrl: "https://github.com/github-username/job-dashboard",
-      demoUrl: "https://demo.example.com/job-dashboard",
+        "아이디어 접수부터 사내 실증까지 단계별 평가 체계를 재설계해, 실행력 중심의 사내벤처 운영 모델을 구축한 사례입니다.",
+      focus: [
+        "시장성 검증 프레임 설계",
+        "단계 게이트 심사 체계 운영",
+        "예산·리소스 배분 우선순위화",
+        "성과지표(KPI) 구조 정비",
+      ],
+      caseUrl: "https://demo.example.com/internal-venture-program",
+      referenceUrl: "https://github.com/github-username/internal-venture-program",
       highlights: [
-        "검색/필터 UX를 재구성해 탐색 시간을 평균 34% 단축",
-        "컴포넌트 단위 리팩터링으로 신규 기능 추가 시간을 2배 개선",
-        "에러 경계와 로딩 상태를 표준화해 사용자 이탈을 감소",
+        "연간 사내벤처 제안 접수 건수 1.8배 확대",
+        "1차 검토 리드타임 3주에서 8일로 단축",
+        "파일럿 전환율 22%에서 37%로 개선",
       ],
     },
     {
-      title: "팀 문서 자동화 워크플로",
+      title: "오픈이노베이션 PoC 연계 프로그램",
       description:
-        "반복되는 문서 작성 업무를 자동화해 기획-개발 협업 시간을 줄인 내부 도구입니다.",
-      tech: ["Node.js", "Express", "OpenAPI", "SQLite"],
-      githubUrl: "https://github.com/github-username/docs-automation",
-      demoUrl: "https://demo.example.com/docs-automation",
+        "스타트업·외부 파트너와 사내 사업부를 연결해 PoC를 빠르게 실행할 수 있도록 과제 발굴-매칭-평가 프로세스를 통합한 사례입니다.",
+      focus: [
+        "협업 과제 소싱 및 우선순위화",
+        "사내 요구사항-파트너 역량 매칭",
+        "PoC 운영 가이드 및 일정 관리",
+        "성과평가 및 후속사업 전환 설계",
+      ],
+      caseUrl: "https://demo.example.com/open-innovation-poc",
+      referenceUrl: "https://github.com/github-username/open-innovation-poc",
       highlights: [
-        "템플릿 기반 생성기로 주간 문서 작성 리드타임 40% 감소",
-        "권한 분리와 감사 로그를 추가해 운영 안정성 향상",
-        "문서 포맷 검증을 CI에 연결해 품질 편차 최소화",
+        "연간 협업 과제 발굴 수 14건에서 31건으로 확대",
+        "PoC 착수까지 평균 소요기간 45일에서 19일로 단축",
+        "후속 계약/공동사업 전환율 29% 달성",
       ],
     },
     {
-      title: "개인 금융 리포트 서비스",
+      title: "CBDC 결제수단 도입 추진",
       description:
-        "소비 패턴을 시각화하고 절약 목표를 추적할 수 있는 개인 재무 관리 서비스입니다.",
-      tech: ["Next.js", "Prisma", "PostgreSQL", "Recharts"],
-      githubUrl: "https://github.com/github-username/finance-reporter",
-      demoUrl: "https://demo.example.com/finance-reporter",
+        "규제·기술·운영 관점을 통합해 CBDC 결제수단 도입 타당성을 검토하고 단계별 도입 로드맵을 수립한 사업기획 프로젝트입니다.",
+      focus: [
+        "정책·규제 영향 분석",
+        "결제 시나리오 및 고객 여정 설계",
+        "운영 리스크 및 통제 방안 수립",
+        "도입 단계별 실행 로드맵 설계",
+      ],
+      caseUrl: "https://demo.example.com/cbdc-payment-rollout",
+      referenceUrl: "https://github.com/github-username/cbdc-payment-rollout",
       highlights: [
-        "월별 리포트 생성 과정을 자동화해 재방문율 증가",
-        "접근성 기준을 반영해 키보드 전용 내비게이션 지원",
-        "캐싱 전략 조정으로 주요 화면 로딩 속도 27% 개선",
+        "핵심 이해관계자 합의안 도출 기간 2개월 단축",
+        "시범 도입 대상 채널 3개 선정 및 PoC 착수",
+        "운영 리스크 대응 체크리스트 표준안 수립",
       ],
     },
   ],
@@ -148,22 +183,22 @@ function renderProjects() {
       highlights.appendChild(item);
     });
 
-    const tech = document.createElement("div");
-    tech.className = "project-tech";
-    project.tech.forEach((item) => {
+    const focus = document.createElement("div");
+    focus.className = "project-focus";
+    project.focus.forEach((item) => {
       const token = document.createElement("span");
       token.textContent = item;
-      tech.appendChild(token);
+      focus.appendChild(token);
     });
 
     const links = document.createElement("div");
     links.className = "project-links";
     links.append(
-      createExternalLink(project.demoUrl, "Demo"),
-      createExternalLink(project.githubUrl, "GitHub"),
+      createExternalLink(project.caseUrl, "케이스 보기"),
+      createExternalLink(project.referenceUrl, "관련 자료"),
     );
 
-    card.append(title, description, highlights, tech, links);
+    card.append(title, description, highlights, focus, links);
     container.appendChild(card);
   });
 }
@@ -177,7 +212,7 @@ function renderContacts() {
   emailLink.href = `mailto:${portfolioData.contacts.email}`;
   emailLink.textContent = `Email: ${portfolioData.contacts.email}`;
 
-  const githubLink = createExternalLink(portfolioData.contacts.github, "GitHub 프로필");
+  const githubLink = createExternalLink(portfolioData.contacts.github, "온라인 프로필");
   githubLink.classList.add("contact-link");
 
   container.append(emailLink, githubLink);

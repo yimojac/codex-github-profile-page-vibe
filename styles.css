@@ -311,14 +311,14 @@ h3 {
   margin-top: 0.35rem;
 }
 
-.project-tech {
+.project-focus {
   margin: var(--space-3) 0;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
 
-.project-tech span {
+.project-focus span {
   font-size: 0.82rem;
   border-radius: 999px;
   background: #f2efff;
